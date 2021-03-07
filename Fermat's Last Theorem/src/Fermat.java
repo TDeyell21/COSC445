@@ -14,7 +14,7 @@ External resources:
 import java.util.Scanner;
 import java.lang.Math;
 
-public class fermat{
+public class Fermat{
 	static void fermatTest(){
 		Scanner input= new Scanner(System.in); //creates a way for the user to interact with the program
 		System.out.println("Fermat's Final Theorem states that there is no natural numbers that satisfy the equation x^n + y^n = z^n when n>2.");
@@ -32,9 +32,8 @@ public class fermat{
 			k=input.nextInt();
 		}
 		int x=10; int y=10;// initializes variables to begin our search
-		double missRatio=0;//initializes a term to be called later
 		
-		for (int i=10;i<k;i++) {//will be our search algorithm for finding the "near misses"
+		for (int i=10;i<k;i++) {
 			for(int j=10; j<k; j++) {
 				double pair=(x^n)+(y^n); //creates the pair sum we are trying to approximate
 				double z=Math.pow(pair, 1/n);//approximates a z value
@@ -46,7 +45,7 @@ public class fermat{
 				double diff1=pair-bound1;//creates difference to compare 
 				double diff2=bound2-pair;//creates difference to compare 
 				double miss=Math.min(diff1, diff2);
-				missRatio=miss/pair;
+				double missRatio=miss/pair;
 				if (missRatio<currentRatio) {
 					currentRatio=missRatio;
 					double zFinal=miss;//holds which z-value is being used 
@@ -55,19 +54,17 @@ public class fermat{
 			} 	
 		x++;
 		System.out.println("The current approximation values are: ");
-		System.out.println("n= %d;x= %d ; y= %d ; z= %f",n, x,y,zFinal);
-		System.out.println("The current miss ratio is %f", missRatio);
+		System.out.println("n= %d;x= %d ; y= %d ; z= %d",n, x,y,zFinal);
+		System.out.println("The current miss ratio is "+ missRatio);
 		System.out.println("Continue searching? ");
 		String nextLine=input.next();//creates an executbale to keep the program running and let the user analyze the current scenario 
-		while (nextLine.isEmpty())
-			{continue;}
-			
+		while (nextLine.isEmpty()) {
+			{continue;}	
+	
 		}
-		
-	
-	}
-	
+		}
 	public static void main(String[] args) {
 		fermatTest();
+		}
 	}
-}
+} 
