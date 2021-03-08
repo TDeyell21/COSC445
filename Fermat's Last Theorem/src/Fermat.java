@@ -59,8 +59,8 @@ public class Fermat{
 					System.out.println("The current miss ratio is "+ missRatio);
 					System.out.println('\n');
 				}
-			} //end of inner for loop
-		}//end of outer for loop
+			} //end of inner for-loop
+		}//end of outer for-loop
 		input.close();
 	}
 	public static void main(String[] args) {
